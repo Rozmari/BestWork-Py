@@ -1,3 +1,5 @@
+## Created by cjpearson, modified for use by Rozmari / Rosemary Jones.
+
 import urllib
 import re
 from bs4 import BeautifulSoup
@@ -40,7 +42,7 @@ def openPage(url):
 	for m in movies:
 		linkDiv = m.find('div')
 		links.append(linkDiv.a['href'])
-	
+
 	#go to each link and fetch all of the reviews
 	for url in links:
 		print(url)
@@ -61,7 +63,7 @@ parser.read('db.ini')
 user = parser.get('db', 'user')
 password = parser.get('db', 'password')
 db = parser.get('db', 'db')
-                
+
 args = {'user': user, 'passwd': password, 'db': db}
 if parser.has_option('db', 'host'):
 	args['host'] = parser.get('db', 'host')
